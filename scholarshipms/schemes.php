@@ -1,6 +1,12 @@
 <?php
 session_start();
-error_reporting(0);
+
+// Enable full error reporting
+error_reporting(E_ALL);
+
+// Display errors on the screen
+ini_set('display_errors', '1');
+
 include('includes/dbconnection.php');
 ?>
 <!DOCTYPE html>
