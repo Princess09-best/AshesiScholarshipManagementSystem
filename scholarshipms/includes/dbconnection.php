@@ -1,6 +1,6 @@
 <?php 
 // DB credentials.
-define('DB_HOST','169.239.251.102');
+define('DB_HOST','localhost');
 define('DB_USER','princess.balogun');
 define('DB_PASS','ZyxB09$$');
 define('DB_NAME','webtech_fall2024_princess_balogun');
