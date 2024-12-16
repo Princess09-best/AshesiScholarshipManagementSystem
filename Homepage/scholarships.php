@@ -1,23 +1,22 @@
 <?php
 session_start();
-
 // Enable full error reporting
 error_reporting(E_ALL);
 
 // Display errors on the screen
 ini_set('display_errors', '1');
 
-
-include('includes/dbconnect.php');
+include('../includes/dbconnect.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Ashesi Scholarship Management System|| Index Page</title>
-   
+    <title>ASMS | About Us Page</title>
+ 
+    
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
 
-    <!--<link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">-->
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
     
     <link rel="stylesheet" href="css/owl.carousel.min.css">
@@ -38,22 +37,58 @@ include('includes/dbconnect.php');
   </head>
   <body>
     
-  <?php include_once('includes/header.php');?>
+<?php include_once('../includes/header.php');?>
     
-    <div class="hero-wrap" style="background-image: url('images/image-1.jpg'); background-attachment:fixed;">
+    <div class="hero-wrap hero-wrap-2" style="background-image: url('../assets/images/image-2.jpg'); background-attachment:fixed;">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
           <div class="col-md-8 ftco-animate text-center">
-            <h1 class="mb-4">Providing Financial Support to Deserving Ashesi Students</h1>
-            <p><a href="users/login.php" class="btn btn-primary px-4 py-3">Apply Now</a> <a href="Homepage/scholarships.php" class="btn btn-secondary px-4 py-3">View Scholarships</a></p>
+            <p class="breadcrumbs"><span class="mr-2"><a href="../index.php">Home</a></span> <span>Scholarships</span></p>
+            <h1 class="mb-3 bread">Scholarships</h1>
           </div>
         </div>
       </div>
     </div>
-   
+
+    <section class="ftco-section">
+    	<div class="container">
+    		<div class="row">
+    		
+          <?php
+                   $sql="SELECT * from tblscheme";
+$query = $dbh -> prepare($sql);
+$query->execute();
+$results=$query->fetchAll(PDO::FETCH_OBJ);
+
+$cnt=1;
+if($query->rowCount() > 0)
+{
+foreach($results as $row)
+{               ?>
+    			<div class="col-md-4 d-flex ftco-animate">
+    				<div class="course align-self-stretch">
+    					<a href="#" class="img" style="background-image: url(../assets/images/course-2.jpg)"></a>
+    					<div class="text p-4">
+    						<p class="category"><span>Scholarship Amount</span> <span class="price">GHC<?php  echo $row->ScholarAmount;?></span></p>
+    						<h3 class="mb-3"><a href="scholarships-details.php?sid=<?php echo $row->ID;?>"><?php  echo $row->SchemeName;?></a></h3>
+    					
+                
+    						<p><a href="../users/login.php" class="btn btn-primary">Apply now!</a></p>
+    					</div>
+    				</div>
+    			</div><?php $cnt=$cnt+1;}} ?>
+    		
+    		
+    		
+    		
+    		</div>
+
+    	</div>
+    </section>
 		
-	<?php include_once('includes/footer.php');?>
+		<?php include_once('../includes/footer.php');?>
+    
   
 
   <!-- loader -->
