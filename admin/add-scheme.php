@@ -36,7 +36,7 @@ if (strlen($_SESSION['aid']==0)) {
      $query->bindParam(':schdesc',$schdesc,PDO::PARAM_STR);
      $query->bindParam(':schamt',$schamt,PDO::PARAM_STR);
 $query->execute();
-       $LastInsertId=$dbh->lastInsertId();
+       $LastInsertId=$db->lastInsertId();
    if ($LastInsertId>0) {
     echo '<script>alert("Scheme detail has been added.")</script>';
 echo "<script>window.location.href ='add-scheme.php'</script>";

@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 
 // Display errors on the screen
 ini_set('display_errors', '1');
-include('includes/dbconnection.php');
+include('includes/dbconnect.php');
 if (strlen($_SESSION['aid']==0)) {
   header('location:logout.php');
   } else{
@@ -24,7 +24,7 @@ if (strlen($_SESSION['aid']==0)) {
   $schdesc=$_POST['schdesc'];
   $schamt=$_POST['schamt'];
   $sql="insert into tblscheme(SchemeName,SchemeType,SchemeGrade,Yearofscholarship,Category,Criteria,DocomentRequired,LastDate,ScholarDesc,ScholarAmount)values(:schemename,:schtype,:schgrade,:yearofsch,:category,:criteria,:docreq,:lastdate,:schdesc,:schamt)";
-     $query = $dbh->prepare($sql);
+     $query = $db->prepare($sql);
      $query->bindParam(':schemename',$schemename,PDO::PARAM_STR);
      $query->bindParam(':schtype',$schtype,PDO::PARAM_STR);
      $query->bindParam(':schgrade',$schgrade,PDO::PARAM_STR);
