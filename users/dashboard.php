@@ -115,11 +115,11 @@ $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
 $totalscheme=$query->rowCount();
 ?>   
-                  <h5 class="text-white mb-0"><?php echo htmlentities($totalscheme);?> <span class="float-right">Total Scheme</span></h5>
+                  <h5 class="text-white mb-0"><?php echo htmlentities($totalscheme);?> <span class="float-right">Total Available Scholarships</span></h5>
                     <div class="progress my-3" style="height:3px;">
                        <div class="progress-bar" style="width:55%"></div>
                     </div>
-                  <a href="views-scheme.php"><p class="mb-0 text-white small-font">View Details <span class="float-right"></span></p></a>
+                  <a href="views-scholarships.php"><p class="mb-0 text-white small-font">View Details <span class="float-right"></span></p></a>
                 </div>
             </div>
             
