@@ -13,7 +13,7 @@ if (strlen($_SESSION['aid']==0)) {
 if($_GET['del']){
 $uid=$_GET['del'];
 $sql= "delete from tbluser where ID='$uid'";
-$query=$dbh->prepare($sql);
+$query=$db->prepare($sql);
 $query->execute();
 echo "<script>alert('Data Deleted');</script>";
 echo "<script>window.location.href='reg-users.php'</script>";
